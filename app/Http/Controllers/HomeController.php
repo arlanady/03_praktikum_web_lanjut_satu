@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +21,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function home()
     {
-        return view('home');
+        $posts = Post::all();
+        return view('home', compact('posts'));
     }
+    public function contact-us() {
+        return view('contact-us');
+    }
+    public function about-us() {
+        return view('about-us');
+    }
+
 }
